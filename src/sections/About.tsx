@@ -7,7 +7,7 @@ import { Code, Lightbulb, Users, TrendingUp } from "lucide-react";
 
 export default function About() {
   const { language } = useContext(LanguageContext);
-  const text = aboutText[language] || aboutText.EN;
+  const t = translations[language].about; // 👈 вот это и есть перевод
 
   const leftCards = text.leftCards;
   const rightCards = text.rightCards.map((card) => ({
@@ -29,24 +29,23 @@ export default function About() {
         <TrendingUp size={36} className='text-pink-400' />
       ),
   }));
-const highlightText = (str: string) => {
-  const keywords = ["React", "Next.js", "JavaScript"];
-  const parts = str.split(new RegExp(`(${keywords.join("|")})`, "gi"));
+  const highlightText = (str: string) => {
+    const keywords = ["React", "Next.js", "JavaScript"];
+    const parts = str.split(new RegExp(`(${keywords.join("|")})`, "gi"));
 
-  return parts.map((part, i) =>
-    keywords.includes(part) ? (
-      <span
-        key={i}
-        className='text-[#7ED67A] font-semibold drop-shadow-[0_0_3px_#7ED67A]'
-      >
-        {part}
-      </span>
-    ) : (
-      <span key={i}>{part}</span>
-    )
-  );
-};
-
+    return parts.map((part, i) =>
+      keywords.includes(part) ? (
+        <span
+          key={i}
+          className='text-[#7ED67A] font-semibold drop-shadow-[0_0_3px_#7ED67A]'
+        >
+          {part}
+        </span>
+      ) : (
+        <span key={i}>{part}</span>
+      )
+    );
+  };
 
   return (
     <motion.section

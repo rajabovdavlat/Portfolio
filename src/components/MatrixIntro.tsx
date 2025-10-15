@@ -1,4 +1,3 @@
-// src/components/MatrixIntro.tsx
 "use client";
 import { useEffect, useRef, useState } from "react";
 
@@ -49,7 +48,6 @@ export default function MatrixIntro() {
 
     draw();
 
-    // Показываем эффект только 1.5 секунды
     const timer = setTimeout(() => {
       setShow(false);
     }, 1500);

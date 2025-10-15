@@ -11,7 +11,7 @@ export default function RootLayoutClient({
 }) {
   return (
     <LanguageProvider>
-      <MatrixIntro /> {/* Показывается только при загрузке/обновлении */}
+      <MatrixIntro /> 
       <Header />
       <main className='pt-25 md:pt-5 relative z-10'>{children}</main>
       <Footer />

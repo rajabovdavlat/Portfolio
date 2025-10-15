@@ -1,15 +1,17 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
-import { navItems as allNavItems } from "@/translations/header"; // Импортируем данные навигации
+import { LanguageContext } from "@/context/language-context";
+import { navItems as allNavItems } from "@/translations/header";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const [language, setLanguage] = useState<"EN" | "RU" | "UZ">("EN");
   const controls = useAnimation();
+
+  const { language, setLanguage } = useContext(LanguageContext);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -54,7 +56,7 @@ export default function Header() {
       }`}
     >
       <nav className='max-w-6xl mx-auto flex justify-between items-center px-6 py-4 text-white'>
-        {/* Мобильная версия */}
+        {/* === Мобильная версия === */}
         <div className='flex w-full items-center justify-between md:hidden'>
           <button
             className='flex items-center justify-center p-2 rounded-md text-white/80 hover:text-white transition'
@@ -103,7 +105,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Десктопная версия */}
+        {/* === Десктопная версия === */}
         <div className='hidden md:flex items-center justify-between w-full'>
           <motion.div
             onClick={scrollToTop}
@@ -130,7 +132,7 @@ export default function Header() {
               </li>
             ))}
 
-            {/* Выбор языка */}
+            {/* === Выбор языка === */}
             <li className='relative'>
               <button
                 onClick={() => setLangOpen(!langOpen)}
@@ -163,7 +165,7 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Мобильное меню */}
+      {/* === Мобильное меню === */}
       <motion.div
         className={`md:hidden fixed top-0 left-0 h-screen w-2/3 bg-black/90 backdrop-blur-md transform transition-transform duration-500 ${
           menuOpen ? "translate-x-0" : "-translate-x-full"

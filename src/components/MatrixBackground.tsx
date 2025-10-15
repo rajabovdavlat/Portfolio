@@ -1,4 +1,3 @@
-// src/components/MatrixBackground.tsx
 "use client";
 import { useEffect, useRef } from "react";
 
@@ -25,7 +24,6 @@ export default function MatrixBackground() {
     const draw = () => {
       if (!ctx) return;
 
-      // прозрачный фон для эффекта шлейфа, без черного сверху
       ctx.fillStyle = "rgba(0, 0, 0, 0.03)";
       ctx.fillRect(0, 0, width, height);
 

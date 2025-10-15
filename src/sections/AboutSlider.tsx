@@ -23,7 +23,7 @@ export default function AboutSlider() {
   return (
     <section
       id='about-slider'
-      className='relative min-h-screen flex items-center justify-center overflow-hidden'
+      className='relative min-h-screen flex items-center justify-center overflow-hidden '
     >
       {/* Стеклянная рамка */}
       <div className='relative w-11/12 md:w-4/5 lg:w-3/4 h-[85vh] rounded-2xl border border-white/20 bg-white/10 backdrop-blur-2xl shadow-[0_0_25px_-5px_rgba(255,255,255,0.3)] overflow-hidden flex items-center justify-center'>
