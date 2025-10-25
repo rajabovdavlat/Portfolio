@@ -10,17 +10,11 @@ import {
   FaMobileAlt,
 } from "react-icons/fa";
 import { SiTypescript, SiTailwindcss, SiRedux, SiFramer } from "react-icons/si";
-import { useContext } from "react";
-import { LanguageContext } from "@/context/language-context";
-import { skillsText } from "@/translations/skills";
 
 export default function Skills() {
-  const { language } = useContext(LanguageContext);
-  const t = skillsText[language];
-
   const categories = [
     {
-      title: t.frontend,
+      title: "Frontend",
       color: "from-sky-400 to-blue-500",
       skills: [
         {
@@ -66,7 +60,7 @@ export default function Skills() {
       ],
     },
     {
-      title: t.tools,
+      title: "Tools & Frameworks",
       color: "from-purple-400 to-pink-500",
       skills: [
         {
@@ -94,9 +88,11 @@ export default function Skills() {
       className='min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white px-6 py-20 flex flex-col items-center'
     >
       <h2 className='text-4xl md:text-5xl font-bold mb-4 text-center'>
-        {t.title}
+        Skills
       </h2>
-      <p className='text-gray-300 text-center mb-12'>{t.description}</p>
+      <p className='text-gray-300 text-center mb-12'>
+        My main technologies and tools I use for development.
+      </p>
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full'>
         {categories.map((category, index) => (

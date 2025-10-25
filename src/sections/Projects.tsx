@@ -2,34 +2,28 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
-import { useContext } from "react";
-import { LanguageContext } from "@/context/language-context";
-import { projectsText } from "@/translations/projects";
 
 export default function Projects() {
-  const { language } = useContext(LanguageContext);
-  const t = projectsText[language];
-
   const projects = [
     {
-      title: t.portfolioTitle,
-      desc: t.portfolioDesc,
+      title: "Frontend Portfolio",
+      desc: "Personal developer portfolio built with Next.js, Tailwind CSS, and Framer Motion. Fully responsive with smooth animations.",
       img: "/portfolio1.jpg",
       tech: ["Tailwind", "React"],
       github: "https://github.com/rajabovdavlat/style.Loom",
       live: "https://style-loom-oial.vercel.app/",
     },
     {
-      title: t.recipeTitle,
-      desc: t.recipeDesc,
+      title: "Healthy Recipe Finder",
+      desc: "Online shop built with React, Redux Toolkit and Firebase. Includes product filters, cart, and authentication.",
       img: "/portfolio2.jpg",
       tech: ["React", "Css"],
       github: "https://github.com/rajabovdavlat/homework8.9",
       live: "https://homework8-9-65tl.vercel.app/",
     },
     {
-      title: t.loginTitle,
-      desc: t.loginDesc,
+      title: "Login Register App",
+      desc: "Simple but elegant app for managing tasks with local storage and modern UI.",
       img: "/portfolio3.jpg",
       tech: ["React", "Tailwind"],
       github: "https://github.com/rajabovdavlat/loginRegistor",
@@ -43,9 +37,11 @@ export default function Projects() {
       className='min-h-screen bg-gradient-to-b from-gray-900 to-black text-white px-6 py-20 flex flex-col items-center'
     >
       <h2 className='text-4xl md:text-5xl font-bold mb-4 text-center'>
-        {t.title}
+        My Projects
       </h2>
-      <p className='text-gray-400 text-center mb-12'>{t.description}</p>
+      <p className='text-gray-400 text-center mb-12'>
+        A selection of my personal and learning projects
+      </p>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl w-full'>
         {projects.map((p, index) => (

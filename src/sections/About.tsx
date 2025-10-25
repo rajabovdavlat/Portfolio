@@ -1,34 +1,33 @@
 "use client";
 import { motion } from "framer-motion";
-import { useContext } from "react";
-import { LanguageContext } from "@/context/language-context";
-import { aboutText } from "@/translations/about";
 import { Code, Lightbulb, Users, TrendingUp } from "lucide-react";
 
 export default function About() {
-  const { language } = useContext(LanguageContext);
-  const t = translations[language].about; // 👈 вот это и есть перевод
+  const leftCards = ["Clean Code", "Innovation", "Collaboration", "Growth"];
 
-  const leftCards = text.leftCards;
-  const rightCards = text.rightCards.map((card) => ({
-    ...card,
-    icon:
-      card.title === "Clean Code" ||
-      card.title === "Чистый код" ||
-      card.title === "Toza kod" ? (
-        <Code size={36} className='text-blue-400' />
-      ) : card.title === "Innovation" ||
-        card.title === "Инновации" ||
-        card.title === "Innovatsiya" ? (
-        <Lightbulb size={36} className='text-teal-300' />
-      ) : card.title === "Collaboration" ||
-        card.title === "Сотрудничество" ||
-        card.title === "Hamkorlik" ? (
-        <Users size={36} className='text-purple-400' />
-      ) : (
-        <TrendingUp size={36} className='text-pink-400' />
-      ),
-  }));
+  const rightCards = [
+    {
+      icon: <Code size={36} className='text-blue-400' />,
+      title: "Clean Code",
+      text: "Writing clear, maintainable and scalable code following modern standards.",
+    },
+    {
+      icon: <Lightbulb size={36} className='text-teal-300' />,
+      title: "Innovation",
+      text: "Always exploring new technologies like React, Next.js and TypeScript.",
+    },
+    {
+      icon: <Users size={36} className='text-purple-400' />,
+      title: "Collaboration",
+      text: "Working effectively in teams, communicating ideas clearly and efficiently.",
+    },
+    {
+      icon: <TrendingUp size={36} className='text-pink-400' />,
+      title: "Growth",
+      text: "Constantly improving both technical and soft skills to become better every day.",
+    },
+  ];
+
   const highlightText = (str: string) => {
     const keywords = ["React", "Next.js", "JavaScript"];
     const parts = str.split(new RegExp(`(${keywords.join("|")})`, "gi"));
@@ -57,6 +56,7 @@ export default function About() {
       viewport={{ once: true }}
     >
       <div className='max-w-6xl w-full flex flex-col md:flex-row items-start gap-12'>
+        {/* LEFT SIDE */}
         <motion.div
           className='flex-1 text-left'
           initial={{ opacity: 0, x: -50 }}
@@ -64,17 +64,23 @@ export default function About() {
           transition={{ duration: 0.8 }}
         >
           <h2 className='text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 via-teal-300 to-purple-500 text-transparent bg-clip-text'>
-            {text.heading}
+            About Me
           </h2>
 
           <p className='text-gray-300 leading-relaxed text-base sm:text-lg mb-4'>
-            {highlightText(text.description1)}
+            {highlightText(
+              "I'm a passionate Frontend Developer who loves building modern and responsive web applications using React, Next.js, and JavaScript."
+            )}
           </p>
           <p className='text-gray-300 leading-relaxed text-base sm:text-lg mb-4'>
-            {highlightText(text.description2)}
+            {highlightText(
+              "I enjoy turning complex problems into elegant, user-friendly solutions and continuously learning new tools and technologies."
+            )}
           </p>
           <p className='text-gray-300 leading-relaxed text-base sm:text-lg mb-4'>
-            {highlightText(text.description3)}
+            {highlightText(
+              "My goal is to write clean, efficient code that not only works but also inspires confidence and creativity."
+            )}
           </p>
 
           <motion.div className='flex flex-wrap gap-3 mt-4'>
@@ -91,6 +97,7 @@ export default function About() {
           </motion.div>
         </motion.div>
 
+        {/* RIGHT SIDE */}
         <motion.div className='flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6'>
           {rightCards.map((card, i) => (
             <motion.div
