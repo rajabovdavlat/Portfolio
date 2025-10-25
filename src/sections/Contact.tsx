@@ -15,7 +15,7 @@ export default function Contact() {
   return (
     <motion.section
       id='contact'
-      className='flex flex-col justify-center items-center bg-black text-white px-6 md:px-12 pt-24 pb-16'
+      className='flex flex-col justify-center items-center bg-black/90np text-white px-6 md:px-12 pt-24 pb-16'
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
